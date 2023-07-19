@@ -46,15 +46,13 @@ recuperados. O método de componentDidMount chama atualizar quando o componente 
 
   mudarNomeDepartamento = e => {
     this.setState({ nomeDepartamento: e.target.value });//e: 
-    /*O parâmetro e representa o objeto de evento que é passado para a função de manipulador de eventos. 
-    Ele contém informações sobre o evento que ocorreu. e.target: 
+    /*
     A propriedade target do objeto de evento representa o elemento no qual o evento foi acionado. 
     Nesse caso, ele se refere ao elemento de entrada HTML onde o evento ocorreu. e.target.value: 
-    A propriedade value do elemento target representa o valor atual inserido ou selecionado pelo usuário. 
-    Ele é comumente usado para recuperar o valor de um campo de entrada ou a opção selecionada em um menu suspenso*/
+    A propriedade value do elemento target representa o valor atual inserido ou selecionado pelo usuário.*/
   }
 
-/*mudarNomeDepartamento é uma função de flecha que é definida dentro do componente Departamento. 
+/*mudarNomeDepartamento é um arrow function que é definido dentro do componente Departamento. 
 Ele é usado como um manipulador de eventos para atualizar a propriedade nomeDepartamento no estado do componente. 
 Quando o valor de um campo de entrada é alterado, essa função é chamada e extrai o novo valor da propriedade de destino do evento 
 e o define como o novo estado nomeDepartamento usando this.setState(). */
@@ -70,9 +68,7 @@ e o define como o novo estado nomeDepartamento usando this.setState(). */
 /*addClick é uma função de seta atribuída a uma propriedade de classe. 
   Essa sintaxe garante que a função seja automaticamente vinculada à instância do componente e mantém a referência correta a ela. 
   Quando o método addClick é chamado, ele atualiza o estado do componente usando this.setState(). 
-  Dentro de this.setState(), um objeto é fornecido com os novos valores de estado. 
-  As propriedades que estão sendo atualizadas são: modalTitle: Define o valor como 'Adicionar departamento'. 
-  Isso normalmente é usado para definir o título de um modal ou caixa de diálogo. 
+  Dentro de this.setState(), um objeto é fornecido com os novos valores de estado.
   idDepartamento: Define o valor como 0, indicando que nenhuma ID de departamento específica está sendo editada no momento. 
   nomeDepartamento: Define o valor como uma cadeia de caracteres vazia, limpando qualquer nome de departamento inserido 
   anteriormente. */
@@ -87,13 +83,7 @@ e o define como o novo estado nomeDepartamento usando this.setState(). */
 
   /*editClick é um método definido dentro do componente Departamento. 
 Quando o método editClick é chamado, ele recebe um objeto departamento como um parâmetro. 
-Esse objeto representa o departamento que está sendo editado. 
-Dentro do método, o estado do componente é atualizado usando this.setState(). 
-As propriedades de estado que estão sendo atualizadas são: modal: define o valor como 'Editar'. 
-Isso normalmente é usado para definir o título ou o modo de um modal ou caixa de diálogo. idDepartamento: 
-Define o valor para a propriedade idDepartamento do objeto departamento. Isso atualiza a ID do departamento que está sendo editado. 
-nomeDepartamento: Define o valor para a propriedade nomeDepartamento do objeto departamento. 
-Isso atualiza o nome do departamento que está sendo editado. */
+Esse objeto representa o departamento que está sendo editado. */
 
   criarClick() {
     fetch(variaveis.API_URL + 'departamento', {
@@ -107,7 +97,7 @@ Isso atualiza o nome do departamento que está sendo editado. */
       })
     })
     /* criarClick é um método definido dentro do componente Departamento. 
-    Quando o método criarClick é chamado, ele executa uma solicitação HTTP POST para o ponto de extremidade de API especificada, 
+    Quando o método criarClick é chamado, ele executa uma solicitação HTTP POST para o ponto de extremidade de API, 
     usando a função fetch. A URL para a solicitação POST é construída anexando 'departamento' à variável variaveis. 
     API_URL, que representa a URL base da API. A solicitação inclui os cabeçalhos necessários para aceitar e enviar dados JSON. 
     O corpo da solicitação é criado usando JSON.stringify() para converter um objeto que contém a propriedade nomeDepartamento 
@@ -141,7 +131,7 @@ Isso atualiza o nome do departamento que está sendo editado. */
       })
 
   /*atualizarClick é um método definido dentro do componente Departamento. 
-  Quando o método atualizarClick é chamado, ele executa uma solicitação HTTP PUT para o ponto de extremidade da API especificada,
+  Quando o método atualizarClick é chamado, ele executa uma solicitação HTTP PUT para o ponto de extremidade da API,
   usando a função fetch. A URL para a solicitação PUT é construída anexando 'departamento' a variaveis. 
    API_URL, que representa a URL base da API. A solicitação inclui os cabeçalhos necessários para aceitar e enviar dados JSON. 
   O corpo da solicitação é criado usando JSON.stringify() para converter um objeto que contém as propriedades idDepartamento 
@@ -217,12 +207,7 @@ Isso atualiza o nome do departamento que está sendo editado. */
           Adicionar
         </button>
 
-        {/*A instrução return é usada para definir a marcação JSX que será renderizada pelo componente. 
-        Nesse caso, a marcação JSX começa com um elemento. Dentro do, há um elemento que serve como um botão 
-        "Adicionar" (Adicionar). O atributo type é definido como "button" para indicar que é um elemento button. 
-        O atributo className especifica as classes CSS a serem aplicadas ao botão. 
-        Neste caso, ele tem as classes "btn btn-primary m-2 float-end". Os atributos data-bs-toggle e data-bs-target 
-        são usados para a funcionalidade modal do Bootstrap. Eles definem o modal de destino a ser alternado 
+        {/* Eles definem o modal de destino a ser alternado 
         quando o botão é clicado. O atributo onClick especifica a função do manipulador de eventos a ser executada 
         quando o botão é clicado. Nesse caso, ele chama o método addClick definido no componente. 
         Esse trecho de código representa a parte inicial da lógica de renderização do componente, 
@@ -236,14 +221,6 @@ Isso atualiza o nome do departamento que está sendo editado. */
               <th>Opções</th>
             </tr>
           </thead>
-
-          {/*O elemento representa uma tabela HTML. O atributo className especifica as classes CSS a serem aplicadas à tabela. 
-          Neste caso, ele tem as classes "tabela listrada". Essas classes são usadas para fins de estilo fazem parte 
-          de uma estrutura do Bootstrap. O elemento <thad> representa a seção de cabeçalho da tabela. Dentro do <thead> , 
-          há um elemento que representa uma linha da tabela. Dentro do <tr>, há três elementos que representam as células 
-          do cabeçalho da tabela. O conteúdo de texto dentro de cada elemento especifica os cabeçalhos de coluna: 
-          "id-Departamento", "nome-Departamento" e "Opções". 
-          Esses cabeçalhos definem os rótulos para cada coluna na tabela. */}
 
           <tbody>
             {departamentos.map(departamento => (
@@ -277,16 +254,9 @@ Isso atualiza o nome do departamento que está sendo editado. */
                     onClick={() => this.deleteClick(departamento.idDepartamento)}>
                     Remover
                   </button>
-              {/*Dentro da linha da tabela (<tr>), há uma célula de dados da tabela (<td>) que contém o botão "Remover". 
-              O botão é representado pelo elemento. O atributo type é definido como "button" para indicar que é um elemento button. 
-              O atributo className especifica as classes CSS a serem aplicadas ao botão. 
-              Neste caso, ele tem as classes "btn btn-primary m-2 float-end". 
-              Essas classes fazem parte de uma estrutura CSS do Bootstrap e são usadas para fins de estilo. 
+              {/*
               O atributo onClick especifica a função do manipulador de eventos a ser executada quando o botão é clicado. 
-              Nesse caso, ele dispara o método deleteClick com o valor departamento.idDepartamento como um argumento. 
-              O departamento.idDepartamento representa a propriedade idDepartamento do objeto departamento atual. 
-              Quando esse botão "Remover" é clicado, ele aciona o método deleteClick com o idDepartamento correspondente 
-              como argumento, permitindo a exclusão da linha de dados associada da tabela. */}
+              Nesse caso, ele dispara o método deleteClick com o valor departamento.idDepartamento como um argumento. */}
                 </td>
               </tr>
             ))}
@@ -325,9 +295,7 @@ Após o elemento <span>, há um elemento <input>. Isso representa o próprio cam
                     onChange={this.mudarNomeDepartamento}
                   />
                 </div>
-                {/*O atributo type é definido como "text", especificando que o campo de entrada deve aceitar entrada de texto.
-                O atributo className é definido como "form-control", 
-      que é uma classe Bootstrap usada para estilizar campos de entrada de formulário.
+                {/*
       O atributo value é definido como {nomeDepartamento}, que vincula o valor do campo de entrada à propriedade nomeDepartamento 
       no estado do componente. Isso permite vinculação de dados, onde alterações no campo de entrada 
       atualizam o estado do nomeDepartamento. O atributo onChange é definido como {this.mudarNomeDepartamento}, 
@@ -338,11 +306,7 @@ Após o elemento <span>, há um elemento <input>. Isso representa o próprio cam
                     Novo
                 {/*O código usa um operador condicional (ternário) para renderizar condicionalmente diferentes botões com base 
                 no valor de idDepartamento. Se idDepartamento for igual a 0, a condição {idDepartamento === 0} é avaliada 
-                como verdadeira, e a primeira parte do operador ternário é executada. Ele renderiza um elemento <button> 
-                com o atributo type definido como "button". O atributo className é definido como "btn btn-primary float-start", 
-                que especifica as classes CSS para estilizar o botão. O atributo onClick é definido como uma função de seta () => 
-                this.criarClick(), que atribui o método criarClick como o manipulador de eventos para o evento onClick do botão. 
-                Clicar no botão aciona o método criarClick. O conteúdo do texto do botão é definido como "Novo". */}
+                como verdadeira, e a primeira parte do operador ternário é executada.*/}
                   </button>              
                 ) : (
                   <button type="button" className="btn btn-primary float-start" onClick={() => this.atualizarClick()}>
@@ -352,9 +316,7 @@ Após o elemento <span>, há um elemento <input>. Isso representa o próprio cam
                 mas com um atributo onClick diferente. O atributo onClick é definido como uma função de seta 
                 () => this.atualizarClick(), que atribui o método atualizarClick como o manipulador de eventos para o evento 
                 onClick do botão. Clicar no botão aciona o método atualizarClick. O conteúdo do texto do botão é definido 
-                como "Atualizar". Este trecho de código renderiza condicionalmente o botão "Novo" ou o botão "Atualizar" 
-                com base no valor de idDepartamento. Se idDepartamento for 0, o botão "Novo" é renderizado, e se não for 0, 
-                o botão "Atualizar" é renderizado. */}
+                como "Atualizar". */}
                   </button>
                 )}
               </div>
