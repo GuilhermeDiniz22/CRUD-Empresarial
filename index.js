@@ -104,7 +104,13 @@ app.post('/api/departamento', (req, res) => {
   });
 });
 
+<<<<<<< Updated upstream
 /* 
+=======
+/*Dentro da função callback, uma query string SQL é definida para inserir um novo registro na tabela "departamento". 
+A consulta usa um espaço reservado ? para indicar o valor será fornecido separadamente.
+A variável values é um array contendo o(s) valor(es) a ser(em) inserido(s). 
+>>>>>>> Stashed changes
 Nesse caso, espera-se um único valor, req.body.nomeDepartamento, obtido do corpo da requisição.
 A consulta é executada usando conexao.query(), passando a string de consulta, array de valores e uma função callback 
 para tratar o resultado da consulta.
@@ -126,7 +132,11 @@ app.put('/api/departamento', (req, res) => {
   });
 });
 
+<<<<<<< Updated upstream
 /* 
+=======
+/*Dentro da função callback, uma string de consulta SQL é definida para atualizar um registro na tabela "departamento". 
+>>>>>>> Stashed changes
 Neste caso, espera-se dois valores: req.body.nomeDepartamento e req.body.idDepartamento, obtidos do corpo da requisição.
 A consulta é executada usando conexao.query(), passando a string de consulta, array de valores e uma função callback 
 para tratar o resultado da consulta.
@@ -139,9 +149,9 @@ app.delete('/api/departamento/:id', (req, res) => {
     parseInt(req.params.id)
   ];
 
-/*Dentro da função de retorno de chamada, uma string de consulta SQL é definida para excluir um registro da tabela "departamento" 
-com base no ID fornecido. A consulta usa um espaço reservado de parâmetro? para indicar o valor será fornecido separadamente.
-A variável values é um array contendo o valor a ser usado para o ID. Nesse caso, espera-se um único valor, parseInt(req.params.id), 
+/*uma string de consulta SQL é definida para excluir um registro da tabela "departamento" 
+com base no ID fornecido. . A variável valores é um array contendo o valor a ser usado para o ID. Nesse caso, espera-se um único valor, 
+parseInt(req.params.id), 
 obtido dos parâmetros da requisição. parseInt() é usado para converter o ID em um número inteiro.*/
 
   conexao.query(query, valores, function (err, linhas, dados) {
@@ -152,6 +162,12 @@ obtido dos parâmetros da requisição. parseInt() é usado para converter o ID 
   });
 });
 
+<<<<<<< Updated upstream
+=======
+/*.
+Se a consulta for bem-sucedida, a função callback enviará a resposta com a mensagem "Deletado com sucesso!" 
+usando res.json().*/
+>>>>>>> Stashed changes
 
 
 
@@ -188,12 +204,21 @@ app.post('/api/empregado', (req, res) => {
   });
 });
 
+<<<<<<< Updated upstream
 /*Dentro da função callback, uma string de consulta SQL é definida para inserir um novo registro na tabela "empregado".
 A interrogação é um parâmetro para indicar que os valores serão fornecidos separadamente.
 A variável values é um array contendo os valores a serem inseridos. 
 Nesse caso, espera quatro valores obtidos do corpo da solicitação: 
 req.body.nomeEmpregado, req.body.departamento, req.body.dataDeContratacao e req.body.foto..*/
 
+=======
+/* quatro valores obtidos do corpo da solicitação: 
+req.body.nomeEmpregado, req.body.departamento, req.body.dataDeContratacao e req.body.foto.
+
+Esses valores são retirados do corpo da solicitação usando req.body e são atribuídos às posições correspondentes
+ na matriz de valores. A consulta é executada usando conexao.query(), passando a string de consulta.
+*/
+>>>>>>> Stashed changes
 
 app.put('/api/empregado', (req, res) => {
   let query = `UPDATE empregado set nomeEmpregado=?, departamento=?, dataDeContratacao=?, foto=? where idEmpregado=?`;
@@ -205,7 +230,11 @@ app.put('/api/empregado', (req, res) => {
     req.body.idEmpregado
   ];
 
+<<<<<<< Updated upstream
 /* 
+=======
+/*Dentro da função callback, uma string de consulta SQL é definida para atualizar o registro na tabela "empregado". 
+>>>>>>> Stashed changes
 Nesse caso, espera quatro valores obtidos do corpo da solicitação: 
 req.body.nomeEmpregado, req.body.departamento, req.body.dataDeContratacao e req.body.foto.
 Esses valores são retirados do corpo da solicitação usando req.body e são atribuídos às posições correspondentes 
@@ -220,8 +249,11 @@ na matriz de valores.*/
   });
 });
 
+<<<<<<< Updated upstream
 /*A consulta é executada usando conexao.query(), passando a string de consulta, array de valores e uma função callback 
 para tratar o resultado da consulta.*/
+=======
+>>>>>>> Stashed changes
 
 app.delete('/api/empregado/:id', (req, res) => {
   let query = `DELETE from empregado where idEmpregado=?`;
@@ -230,9 +262,8 @@ app.delete('/api/empregado/:id', (req, res) => {
   ];
 
 /*Dentro da função callback, uma string de consulta SQL é definida para excluir um registro da tabela "empregado" com base no ID. 
-A consulta usa um espaço reservado de parâmetro? para indicar que o valor será fornecido separadamente.
-A variável values é um array contendo o valor a ser deletado. Neste caso, espera-se um único valor obtido dos parâmetros 
-da requisição: req.params.id. A função parseInt() é usada para converter o ID de uma string em um número inteiro.*/
+Neste caso, espera-se um único valor obtido dos parâmetros  da requisição: req.params.id. 
+A função parseInt() é usada para converter o ID de uma string em um número inteiro.*/
 
   conexao.query(query, valores, function (err, linhas, dados) {
     if (err) {
@@ -243,10 +274,26 @@ da requisição: req.params.id. A função parseInt() é usada para converter o 
 });
 
 
+<<<<<<< Updated upstream
 /*A consulta é executada usando conexao.query(), passando a string de consulta, array de valores e uma função callback 
 para tratar o resultado da consulta.
 Caso ocorra algum erro durante a execução da consulta, a função callback enviará a resposta com a mensagem 
 'Consulta falhou' utilizando res.send().
 Se a consulta for bem-sucedida, a função callback enviará a resposta com a mensagem "Excluído com sucesso!" usando res.json().*/
 
+=======
+app.post('/api/empregado/salvararquivo', (req, res) => {
+  let caminho = './Fotos/' + req.files.file.name;
+  fs.writeFile(caminho, req.files.file.data, (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Erro ao salvar arquivo.');
+    }
+    res.json(req.files.file.name);
+  });
+});
+/*Quando uma solicitação POST é feita para o endereço /api/empregado/salvararquivo, 
+o código dentro da função do manipulador de rota será executado. A variável caminho é criada concatenando o caminho do diretório
+ './Fotos/' com a propriedade name do arquivo carregado. Isso determinará o caminho onde o arquivo será salvo.
+>>>>>>> Stashed changes
 

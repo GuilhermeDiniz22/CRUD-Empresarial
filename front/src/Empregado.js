@@ -20,9 +20,14 @@ export class Empregado extends Component {
 
 /*O método construtor é um método especial em um componente de classe que é chamado quando uma instância da classe é criada.
 Ele define o estado inicial do componente atribuindo um objeto a this.state. O objeto de estado contém várias propriedades 
+<<<<<<< Updated upstream
 que serão usadas para armazenar dados e controlar o comportamento do componente. Neste caso, as propriedades são: departamentos:  
 Um array vazio para armazenar os dados do departamento. empregados: Uma matriz vazia para armazenar dados de funcionários.
 modal: */
+=======
+que serão usadas para armazenar dados e controlar o comportamento do componente.
+*/
+>>>>>>> Stashed changes
 
   atualizar = () => {
     fetch(variaveis.API_URL + 'empregado')
@@ -92,9 +97,13 @@ quando for renderizado pela primeira vez. */
       foto: 'funcionario.png',
     });
   };
+<<<<<<< Updated upstream
 /*O método addClick é definido como uma função de seta e atribuído à propriedade addClick do componente.
 Quando esse método é chamado, ele define o estado do componente invocando this.setState.
 Dentro de setState, um objeto é fornecido com pares chave-valor que representam as propriedades de estado a serem atualizadas.*/
+=======
+
+>>>>>>> Stashed changes
   editClick = empregado => {
     this.setState({
       modal: 'Editar Empregado',
@@ -105,11 +114,15 @@ Dentro de setState, um objeto é fornecido com pares chave-valor que representam
       foto: empregado.foto
     });
   };
+<<<<<<< Updated upstream
 /*O método editClick é definido como uma função de seta e atribuído à propriedade editClick do componente.
 Leva um parâmetro empregado, que representa o objeto empregado a ser editado.
 Quando esse método é chamado, ele define o estado do componente invocando this.setState.
 Dentro de setState, um objeto é fornecido com pares chave-valor que representam as propriedades de estado a serem atualizadas.
 */
+=======
+
+>>>>>>> Stashed changes
   criarClick = () => {
     fetch(variaveis.API_URL + 'empregado', {
       method: 'POST',
@@ -123,10 +136,14 @@ Dentro de setState, um objeto é fornecido com pares chave-valor que representam
         dataDeContratacao: this.state.dataDeContratacao,
         foto: this.state.foto
       })
+<<<<<<< Updated upstream
       /*O método editClick é definido como uma arrow function e atribuído à propriedade editClick do componente.
       Leva um parâmetro empregado, que representa o objeto empregado a ser editado.
       Quando esse método é chamado, ele define o estado do componente invocando this.setState. Dentro de setState, 
       um objeto é fornecido com pares chave-valor que representam as propriedades de estado a serem atualizadas.*/
+=======
+    
+>>>>>>> Stashed changes
     })
       .then(res => res.json())
       .then(resultado => {
@@ -137,6 +154,7 @@ Dentro de setState, um objeto é fornecido com pares chave-valor que representam
         alert('Falha');
       });
   };
+<<<<<<< Updated upstream
 /*Este bloco de código continua a partir do bloco de código anterior, onde a função de busca é chamada para enviar 
 uma solicitação POST para criar um novo funcionário.
 A cadeia de código .then(res => res.json()) é usada para analisar os dados de resposta como JSON.
@@ -146,6 +164,9 @@ alert(resultado) é chamado para exibir um alerta com o valor do resultado, que
 contém uma mensagem relacionada à criação do novo funcionário.
 this.atualizar() é chamado para atualizar os dados do funcionário no estado do componente invocando o método atualizado. 
  */
+=======
+
+>>>>>>> Stashed changes
 
   deleteClick = id => {
     fetch(variaveis.API_URL + 'empregado/' + id, {
@@ -156,20 +177,24 @@ this.atualizar() é chamado para atualizar os dados do funcionário no estado do
       }
     })
       .then(res => res.json())
-      .then(result => {
-        alert(result);
+      .then(resultado => {
+        alert(resultado);
         this.atualizar();
       })
       .catch(error => {
         alert('Falha');
       });
   };
+<<<<<<< Updated upstream
 /*O método deleteClick é chamado, ele envia uma solicitação HTTP DELETE ao servidor para excluir o funcionário com o ID especificado.
 Utiliza a função fetch para fazer a requisição, especificando a URL como variaveis.API_URL + 'empregado/' + id. 
 Essa URL representa o endpoint para excluir um funcionário com o ID fornecido.
 O segundo argumento a ser buscado é um objeto que contém parâmetros adicionais para a solicitação, 
 incluindo o método, cabeçalhos e corpo (que não é usado neste caso, pois é uma solicitação DELETE).
 O método é definido como 'DELETE' para indicar que esta é uma solicitação DELETE. */
+=======
+
+>>>>>>> Stashed changes
   render() {
     const {
       departamentos,
@@ -182,8 +207,12 @@ O método é definido como 'DELETE' para indicar que esta é uma solicitação D
       fotoPath,
       foto
     } = this.state;
+<<<<<<< Updated upstream
 /*As variáveis ​​recebem os valores correspondentes do objeto de estado, permitindo um acesso mais fácil 
 a esses valores dentro do método render.*/
+=======
+
+>>>>>>> Stashed changes
     return (
       <div>
         <button
@@ -195,7 +224,11 @@ a esses valores dentro do método render.*/
         >
           Adicionar
         </button>
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
         <table className="table table-striped">
           <thead>
             <tr>
@@ -206,7 +239,11 @@ a esses valores dentro do método render.*/
               <th>Opções</th>
             </tr>
           </thead>
+<<<<<<< Updated upstream
 
+=======
+  
+>>>>>>> Stashed changes
           <tbody>
             {empregados.map(empregado => (
               <tr key={empregado.idEmpregado}>
@@ -215,12 +252,16 @@ a esses valores dentro do método render.*/
                 <td>{empregado.departamento}</td>
                 <td>{empregado.dataDeContratacao}</td>
                 <td>
+<<<<<<< Updated upstream
                   {/*O código JSX começa com um elemento <tbody>, que representa a seção do corpo da tabela.
 Dentro do <tbody> existe uma expressão JavaScript ({empregados.map(...)}) que mapeia sobre o array empregados
  gera elementos JSX para cada empregado. A função empregados.map(...) itera sobre cada elemento no array empregados 
  e executa uma função de callback para cada elemento. A função callback gera elementos JSX para cada funcionário 
  usando a sintaxe da função de seta (empregado => ...). Dentro da função callback, um elemento <tr> é criado para cada funcionário, representando uma linha da tabela.
 O atributo chave é definido como empregado.idEmpregado para fornecer um identificador exclusivo para cada linha da tabela. */}
+=======
+              
+>>>>>>> Stashed changes
                   <button
                     type="button"
                     className="btn btn-primary m-2 float-end"
@@ -229,6 +270,7 @@ O atributo chave é definido como empregado.idEmpregado para fornecer um identif
                     Remover
                   </button>
                 </td>
+<<<<<<< Updated upstream
                 {/*O código JSX representa um elemento <button>.
 O atributo type é definido como "botão" para indicar que é um botão normal, não um botão de envio. 
 O atributo className é definido como "btn btn-primary m-2 float-end" para atribuir classes CSS ao botão, 
@@ -236,6 +278,9 @@ estilizando-o como um botão principal com alguma margem e flutuando para a dire
 O atributo onClick é definido como uma função de seta () => this.deleteClick(empregado.idEmpregado). 
 Isso define o manipulador de eventos de clique para o botão. Ao clicar no botão, a função seta é invocada, 
 e chama o método deleteClick do componente, passando empregado.idEmpregado como argumento. */}
+=======
+        
+>>>>>>> Stashed changes
               </tr>
             ))}
           </tbody>
@@ -247,12 +292,16 @@ e chama o método deleteClick do componente, passando empregado.idEmpregado como
                 <h5 className="modal-title">{modal}</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+<<<<<<< Updated upstream
               {/* O valor className "modal-dialog" especifica o estilo geral 
 do diálogo modal. A classe "modal-lg" indica que o modal deve ser renderizado em tamanho grande.
 A classe "centralizada no diálogo modal" centraliza o diálogo modal horizontalmente.
 Dentro da caixa de diálogo modal, há outro elemento <div> com className definido como "modal-content". 
 Representa a área de conteúdo do modal. Dentro do conteúdo modal, há um elemento <div> com className 
 definido como "cabeçalho modal".*/}
+=======
+      
+>>>>>>> Stashed changes
               <div className="modal-body">
                 <div className="d-flex flex-row bd-highlight mb-3">
                   <div className="p-2 w-50 bd-highlight">
@@ -265,6 +314,7 @@ definido como "cabeçalho modal".*/}
                     onChange={this.mudarNomeEmpregado}
                   />
                 </div>
+<<<<<<< Updated upstream
                 {/*.
 Dentro do grupo de entrada, existe um elemento <input>. Representa o campo de entrada para edição do nome do funcionário.
 O atributo type é definido como "text" para indicar que é um campo de entrada de texto.
@@ -275,12 +325,15 @@ ao campo de entrada. Quando o usuário digitar no campo, o método mudarNomeEmpr
 para atualizar o nome do funcionário no estado do componente. */}
 
 
+=======
+>>>>>>> Stashed changes
                     <div className="input-group mb-3">
                       <span className="input-group-text">Departamento</span>
                       <select
                         className="form-select"
                         onChange={this.mudarDepartamento}
                         value={departamento}
+<<<<<<< Updated upstream
                       >{/*
                       O atributo onChange é definido como {this.mudarDepartamento} para atribuir um manipulador 
                       de eventos de alteração ao menu suspenso. Quando o usuário selecionar um departamento diferente, 
@@ -289,6 +342,9 @@ para atualizar o nome do funcionário no estado do componente. */}
                       Este trecho de código representa um grupo de entrada com um rótulo e um menu suspenso de seleção para escolher 
                       o departamento do funcionário. */}
                        ```
+=======
+                      >
+>>>>>>> Stashed changes
                         {departamentos.map(departamento => (
                           <option key={departamento.idDepartamento}>
                             {departamento.nomeDepartamento}
@@ -296,6 +352,7 @@ para atualizar o nome do funcionário no estado do componente. */}
                         ))}
                       </select>
                     </div>
+<<<<<<< Updated upstream
                     {/*.
 O codigo usa a função map para iterar no array departamentos e gerar um elemento <option> para cada departamento.
 A função de seta (departamento => ...) é usada como função de retorno de chamada para a função de mapa, 
@@ -305,6 +362,8 @@ O atributo chave é definido como departamento.idDepartamento para fornecer um i
 Isso é importante para renderização e atualização eficientes do componente.
 O conteúdo de cada opção é definido como departamento.nomeDepartamento, que representa o nome do departamento.
 A tag de fechamento </option> é colocada após o nome do departamento. */}
+=======
+>>>>>>> Stashed changes
                     <div className="input-group mb-3">
                       <span className="input-group-text">Data de Admissão</span>
                       <input
@@ -314,6 +373,7 @@ A tag de fechamento </option> é colocada após o nome do departamento. */}
                         onChange={this.mudarDatadeContratacao}
                       />
                     </div>
+<<<<<<< Updated upstream
                     {/*
 O atributo value é definido como {dataDeContratacao} para exibir o valor atual da data de contratação do funcionário 
 no campo de entrada.
@@ -322,6 +382,8 @@ de alteração ao campo de entrada. Quando o usuário selecionar uma data difere
 do componente para atualizar a data de admissão do funcionário no estado do componente.
 Este trecho de código representa um campo de entrada para editar a data de contratação do funcionário na seção do corpo 
 do componente modal. */}
+=======
+>>>>>>> Stashed changes
 
                   </div>
 

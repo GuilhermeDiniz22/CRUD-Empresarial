@@ -31,7 +31,7 @@ export class Departamento extends Component {
       });
   }
 
-/*O método atualizar busca dados de departamento de um ponto de extremidade de API especificado por variaveis. API_URL. 
+/*O método atualizar busca dados de departamento de um ponto de extremidade de API especificado = variaveis. API_URL. 
 Ele usa a função fetch para fazer uma solicitação HTTP GET, converte a resposta em JSON e atualiza o estado com os dados 
 recuperados. O método de componentDidMount chama atualizar quando o componente é montado para buscar os dados iniciais. */
 
@@ -45,6 +45,7 @@ recuperados. O método de componentDidMount chama atualizar quando o componente 
   que busca dados do departamento de um ponto de extremidade da API e atualiza o estado do componente. */
 
   mudarNomeDepartamento = e => {
+<<<<<<< Updated upstream
     this.setState({ nomeDepartamento: e.target.value });//e: 
     /*
     A propriedade target do objeto de evento representa o elemento no qual o evento foi acionado. 
@@ -53,6 +54,12 @@ recuperados. O método de componentDidMount chama atualizar quando o componente 
   }
 
 /*mudarNomeDepartamento é um arrow function que é definido dentro do componente Departamento. 
+=======
+    this.setState({ nomeDepartamento: e.target.value }); 
+  }
+
+/*mudarNomeDepartamento é uma arrow function que é definida dentro do componente Departamento. 
+>>>>>>> Stashed changes
 Ele é usado como um manipulador de eventos para atualizar a propriedade nomeDepartamento no estado do componente. 
 Quando o valor de um campo de entrada é alterado, essa função é chamada e extrai o novo valor da propriedade de destino do evento 
 e o define como o novo estado nomeDepartamento usando this.setState(). */
@@ -65,10 +72,15 @@ e o define como o novo estado nomeDepartamento usando this.setState(). */
     });
   }
 
-/*addClick é uma função de seta atribuída a uma propriedade de classe. 
-  Essa sintaxe garante que a função seja automaticamente vinculada à instância do componente e mantém a referência correta a ela. 
+/*
   Quando o método addClick é chamado, ele atualiza o estado do componente usando this.setState(). 
+<<<<<<< Updated upstream
   Dentro de this.setState(), um objeto é fornecido com os novos valores de estado.
+=======
+  Dentro de this.setState(), um objeto é fornecido com os novos valores de estado. 
+  As propriedades que estão sendo atualizadas são: modal: Define o valor como 'Adicionar departamento'. 
+  Isso é usado para definir o título de um modal ou caixa de diálogo. 
+>>>>>>> Stashed changes
   idDepartamento: Define o valor como 0, indicando que nenhuma ID de departamento específica está sendo editada no momento. 
   nomeDepartamento: Define o valor como uma cadeia de caracteres vazia, limpando qualquer nome de departamento inserido 
   anteriormente. */
@@ -81,9 +93,18 @@ e o define como o novo estado nomeDepartamento usando this.setState(). */
     });
   }
 
+<<<<<<< Updated upstream
   /*editClick é um método definido dentro do componente Departamento. 
 Quando o método editClick é chamado, ele recebe um objeto departamento como um parâmetro. 
 Esse objeto representa o departamento que está sendo editado. */
+=======
+  /*
+As propriedades de estado que estão sendo atualizadas são: modal: define o valor como 'Editar'. 
+Isso é usado para definir o título ou o modo de um modal ou caixa de diálogo. idDepartamento: 
+Define o valor para a propriedade idDepartamento do objeto departamento. Isso atualiza a ID do departamento que está sendo editado. 
+nomeDepartamento: Define o valor para a propriedade nomeDepartamento do objeto departamento. 
+Isso atualiza o nome do departamento que está sendo editado. */
+>>>>>>> Stashed changes
 
   criarClick() {
     fetch(variaveis.API_URL + 'departamento', {
@@ -105,8 +126,8 @@ Esse objeto representa o departamento que está sendo editado. */
       .then(res => res.json())
       /*A resposta da API é manipulada usando a cadeia de método then() baseada em Promessa. No primeiro then(), 
       a resposta é convertida em JSON usando res.json().*/
-      .then(result => {
-        alert(result);
+      .then(resultado => {
+        alert(resultado);
         this.atualizar();
       })
       /* O segundo then() manipula os dados JSON resultantes e executa ações de acordo. 

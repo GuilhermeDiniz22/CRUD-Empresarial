@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 /*importa vários componentes do pacote react-router-dom: BrowserRouter, Route, Routes e NavLink. 
-Esses componentes fazem parte do React Router, que é usado para roteamento do lado do cliente em aplicativos React.*/
+Esses componentes fazem parte do React Router, que é usado para roteamento em aplicativos React.*/
 import { Home } from './Home';
 import { Empregado } from './Empregado';
 import { Departamento } from './Departamento';
